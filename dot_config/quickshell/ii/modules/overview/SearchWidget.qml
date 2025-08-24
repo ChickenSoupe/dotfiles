@@ -145,7 +145,31 @@ Item { // Wrapper
                     `
                 ]);
             }
+        },
+        {
+            action: "toggletouchpad",
+            execute: () => {
+                Quickshell.execDetached([
+                    "fish", "-c", `
+ 			set device /sys/class/input/event7
+            set state_file /tmp/touchpad_disabled
+            
+            if test -f $state_file
+                # Touchpad is disabled → enable it
+                pkexec udevadm trigger --action=add --subsystem-match=input
+                rm $state_file
+                notify-send "Touchpad" "Enabled"
+            else
+                # Touchpad is enabled → disable it
+                pkexec udevadm trigger --action=remove $device
+                touch $state_file
+                notify-send "Touchpad" "Disabled"
+            end
+                    `
+                ]);
+            }
         }
+        
     ]
 
     function focusFirstItem() {
