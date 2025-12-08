@@ -1,0 +1,423 @@
+{
+  //"$schema": "https://raw.githubusercontent.com/way-edges/way-edges/master/config/config.schema.json",
+  "$schema": "./schema.json",
+  "widgets": [
+    // ========== TOP EDGE ==========
+    // --- Battery preset ---
+    {
+      "namespace": "battery",
+      "edge": "top",
+      "position": "left",
+      "margins": {
+        "left": "1%"
+      },
+      "monitor": "*",
+      "layer": "top",
+      "type": "slider",
+      "font-family": "TF2 Build",
+      "thickness": 40,
+      "preview-size": 10,
+      //"border-width": 1,
+      "radius": 10,
+      "obtuse-angle": 90,
+      "length": "6%",
+      "fg-color": "#F5722C",
+      "bg-color": "#F5E5C1",
+      "border-color": "#F5722C",
+      "fg-text-color": "#3E3E3E",
+      "bg-text-color": "#3E3E3E",
+      "redraw-only-on-internal-update": true,
+      "preset": {
+        "type": "custom",
+        "update-interval": 1000,
+        "update-command": "~/.config/way-edges/battery.sh"
+      }
+    },
+    // --- Backlight preset ---
+    {
+      "edge": "top",
+      "position": "left",
+      "monitor": "*",
+      "layer": "top",
+      "preview-size": 10,
+      "margins": {
+        "left": "7.5%"
+      },
+      "thickness": 40,
+      "length": "6%",
+      "font-family": "TF2 Build",
+      "fg-color": "#5885A2cc",
+      "bg-color": "#F5E5C1",
+      "border-color": "#5885A2ff",
+      "fg-text-color": "#3E3E3E",
+      "bg-text-color": "#3E3E3E",
+	  "border-width": 3,
+      "radius": 10,
+      "obtuse-angle": 90,
+      "redraw-only-on-internal-update": true,
+      "type": "slider",
+      "preset": {
+        "type": "backlight"
+      }
+    },
+    // --- Audio preset ---
+    {
+      "edge": "top",
+      "position": "left",
+      "monitor": "*",
+      "layer": "top",
+      "preview-size": 10,
+      "type": "slider",
+      "thickness": 40,
+      "font-family": "TF2 Build",
+      "border-width": 3,
+      "length": "6%",
+      "margins": {
+        "left": "14%"
+      },
+      "radius": 10,
+      "obtuse-angle": 90,
+      "fg-color": "#B8383Bcc",
+      "bg-color": "#F5E5C1",
+      "border-color": "#B8383B",
+      "fg-text-color": "#3E3E3E",
+      "bg-text-color": "#3E3E3E",
+      "redraw-only-on-internal-update": true,
+      "preset": {
+        "type": "speaker"
+      }
+    },
+    // ========== LEFT EDGE ==========
+    
+    
+
+    // ========== RIGHT EDGE ==========
+    // --- Tray preset ---
+    {
+      "namespace": "tray",
+      "edge": "top",
+      "position": "right",
+      "monitor": "*",
+      "preview-size": 10,
+      "layer": "top",
+      "ignore-exclusive": true,
+      "type": "wrap-box",
+      "align": "top-center",
+      "icon-size": 30,
+  	  "tray-gap": 5,
+      "margins": {
+        "right": "0.5%"
+      },
+      "outlook": {
+        "type": "board",
+        "color": "#CDC59F",
+        "border-radius": 10,
+        "border-width": 10,  
+      },
+      "items": [
+        {
+          "font-family": "TF2 Build",
+          "type": "tray",
+          "icon-size": 40,
+          "header-menu-stack": "header-top",
+          "header-menu-align": "right",
+          "grid-align": "top-right",
+          "menu-draw-config": {
+            "font-pixel-height": 18,
+            "text-color": "#3E3E3E",
+            "border-color": "#111"
+          },
+          "header-draw-config": {
+            "text-color": "#3E3E3E"
+          }
+        }
+      ]
+    },
+  //================ Bottom Edge ==========
+// --- Workspace preset ---
+    {
+      "edge": "bottom",
+      "position": "bottom",
+      "layer": "top",
+      "monitor": "*",
+      "type": "workspace",
+      "thickness": 30,
+      "preview-size": 10,
+      "border-width": 0,
+      "length": "30%",
+      "hover-color": "#9D312F",
+      "active-increase": 0.2,
+      "active-color": "#fff",
+      "focus-color": "#9D312F",
+      "default-color": "#C1A18A",
+      "focused-only": true,
+      "preset": "hyprland"
+    },
+    
+// --- Time preset ---
+    {
+      "namespace": "time",
+      "edge": "top",
+      "position": "top",
+      "monitor": "*",
+      "layer": "top",
+      "type": "wrap-box",
+      "preview-size": 10,
+      "pinnable": true,
+      "pin-with-key": true,
+      "pin-key": 272,
+      "outlook": {
+        "type": "board",
+        "color": "#ECE3B8",
+        "border-radius": 10,
+        "border-width": 0,  
+      },
+      "items": [
+        {
+          "type": "text",
+          "fg-color": "#3E3E3E",
+          "font-size": 35,
+          "font-family": "TF2 Build",
+          "preset": {
+            "type": "time",
+            "update-interval": 500,
+            "format": "%r %D"
+          }
+        }
+      ]
+    },  
+    //=============Stats=======================
+    {  
+    "namespace": "stats",
+      "edge": "left",
+      "position": "top",
+      "margins": {
+        "top": "2%",
+      },
+      "monitor": "*",
+      "layer": "top",
+      "type": "wrap-box",
+      "outlook": {
+        "type": "board",
+        "color": "#32302F",
+        "border-radius": 20,
+        "margins": {
+          "left": 10,
+          "right": 10,
+          "bottom": 10,
+          "top": 10,
+              }
+      },
+      "offset": 10,
+      "gap":20,
+      "items": [
+        // {
+        //   // "radius": 18,
+        //   // "ring-width": 8,
+        //   "font-size": 20,
+        //   "font-family": "0xProto Nerd Font",
+        //   "fg-color": "#82B2E3",
+        //   "bg-color": "#F5E5C1",
+        //   "type": "ring",
+        //   "prefix": " ",
+        //   "suffix": " {preset}",
+        //   "suffix-hide": true,
+        //   "preset": {
+        //     "update-interval": 500,
+        //     "type": "disk"
+        //   }
+        // },
+        // {
+        //   "radius": 18,
+        //   "ring-width": 8,
+        //   "font-size": 40,
+        //   "font-family": "0xProto Nerd Font",
+        //   "fg-color": "#FFB77B",
+        //   "bg-color": "#00000044",
+        //   "type": "ring",
+        //   "prefix": "󰄌  ",
+        //   "suffix": "{float:2,100}%",
+        //   "prefix-hide": false,
+        //   "suffix-hide": true,
+        //   "preset": {
+        //     "update-interval": 500,
+        //     "type": "battery",
+        //   }
+        // },
+        {
+          "radius": 20,
+          "ring-width": 8,
+          "font-size": 40,
+          "font-family": "0xProto Nerd Font",
+          "fg-color": "#FB8893",
+          "bg-color": "#00000050",
+          "type": "ring",
+          "prefix": "  ",
+          "suffix": "",
+          "prefix-hide": false,
+          "suffix-hide": true,
+          "preset": {
+            "update-interval": 500,
+            "type": "cpu"
+          }
+        },
+        // {
+        //   // "radius": 18,
+        //   // "ring-width": 8,
+        //   "font-size": 20,
+        //   "font-family": "0xProto Nerd Font",
+        //   "fg-color": "#BEAFD9",
+        //   "bg-color": "#00000044",
+        //   "type": "ring",
+        //   "prefix": "󰾶 ",
+        //   "suffix": " {preset}",
+        //   "suffix-hide": true,
+        //   "preset": {
+        //     "update-interval": 500,
+        //     "type": "swap"
+        //   }
+        // },
+        {
+          "radius": 20,
+          "ring-width": 8,
+          "font-size": 40,
+          "font-family": "0xProto Nerd Font",
+          "bg-color": "#00000050",
+          "fg-color": "#08A86850",
+          "type": "ring",
+          "prefix": "  ",
+          "suffix": "",
+          "prefix-hide": false,
+          "suffix-hide": true,
+          "preset": {
+            "update-interval": 500,
+            "type": "ram"
+          }
+        },
+        {
+          "radius": 20,
+          "ring-width": 8,
+          "font-size": 40,
+          "font-family": "0xProto Nerd Font",
+          "bg-color": "#00000050",
+          "fg-color": "#E5741550",
+          "type": "ring",
+          "prefix": "󰾲  ",
+          "suffix": "",
+          "prefix-hide": false,
+          "suffix-hide": true,
+          "preset": {
+            "update-interval": 1000,
+            "cmd": "amdgpu_top --json --single-gpu -n 1 | jq -r '.devices[0].gpu_activity.GFX.value' | awk '{printf \"%.2f\", $1 / 100}'",
+            "type": "custom"
+          }
+        }
+      ]
+    },
+  
+  ]
+}
+
+  // --- keybindings --  
+ // {
+ //     "namespace": "time",
+ //     "edge": "right",
+ //     "position": "bottom",
+ //     "monitor": "*",
+ //     "layer": "top",
+ //     "type": "wrap-box",
+ //     "preview-size": 5,
+ //     
+ //     "items": [
+ //       {
+ //         "type": "text",
+ //         "fg-color": "#FFFFFF",
+ //         "font-size": 25,
+ //         "font-family": "JetBrainsMonoNF-Regular",
+ //         "align":"right",
+ //         "preset": {
+ //          "type": "custom",
+ //          "cmd": "/home/chickensoupe/.config/way-edges/keybinds.sh", // this is the command to run. The command should output a string.
+ //          //"update-interval": 1000, // ms
+ //         },
+ //       }
+ //     ]
+ //   },
+    // =========== buttons ===========
+    //{
+    //  "pin-with-key": false,
+    //  "edge": "bottom",
+    //  "monitor": "*",
+    //  "layer": "top",
+    //  "thickness": 20,
+    //  "length": "40%",
+    //  "type": "btn",
+    //  "event-map": {
+    //    "273": "niri msg action maximize-column",
+    //    "272": "sh -c pkill nwg-drawer || nwg-drawer -ovl",
+    //    "274": "niri msg action close-window",
+    //    "276": "niri msg action toggle-column-tabbed-display",
+    //    "275": "niri msg action toggle-overview"
+    //  }
+    //},
+  // =========== workspace ===========
+//  {
+//    "edge": "left",
+//    "position": "bottom",
+//    "layer": "top",
+//    "monitor": ["eDP-1"],
+//    "type": "workspace",
+//    "thickness": 20,
+//    "length": "50%",
+//    "hover-color": "#4E884Faa",
+//    "active-increase": 0.2,
+//    /// "active-color": "#fff",
+//    "focus-color": "#4E884F",
+//    "default-color": "#000",
+//    "focused-only": true,
+//    "preset": { "type": "niri", "filter-empty": false }
+//  },
+//  {
+//    "edge": "right",
+//    "position": "bottom",
+//    "layer": "top",
+//    "monitor": "HDMI-A-1",
+//    "type": "workspace",
+//    "thickness": 40,
+//    "length": "50%",
+//    "hover-color": "#4E884Faa",
+//    "active-increase": 0.2,
+//    /// "active-color": "#fff",
+//    "focus-color": "#4E884F",
+//    "default-color": "#000",
+//    "focused-only": true,
+//    "preset": { "type": "niri", "filter-empty": false }
+//  },
+  // {
+    //=========== ring stats ===========
+
+//    {
+//      "edge": "top",
+//      "monitor": "*",
+//      "position": "left",
+//      "layer": "top",
+//      "margins": {
+//        "left": "12.5%"
+//      },
+//      "preview-size": 9,
+//      "type": "slider",
+//      "thickness": 40,
+//      "border-width": 3,
+//      "length": "12.5%",
+//      "radius": 10,
+//      "obtuse-angle": 90,
+//      "fg-color": "#BD93F9cc",
+//      "bg-color": "#0000",
+//      "border-color": "#BD93F9",
+//      "fg-text-color": "#fffa",
+//      "bg-text-color": "#fffa",
+//      "redraw-only-on-internal-update": true,
+//      "preset": {
+//        "type": "microphone"
+//      }
+//    },

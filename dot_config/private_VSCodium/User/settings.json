@@ -1,0 +1,106 @@
+{
+    "editor.inlineSuggest.syntaxHighlightingEnabled": true,
+    "workbench.sideBar.location": "right",
+    "workbench.secondarySideBar.showLabels": false,
+    "terminal.integrated.shellIntegration.enabled": false,
+    "workbench.colorTheme": "Gruvbox Dark Soft",
+    "editor.cursorSmoothCaretAnimation": "on",
+    "editor.wordWrap": "on",
+    "workbench.externalBrowser": "brave",
+    "workbench.settings.enableNaturalLanguageSearch": true,
+    "material-icon-theme.hidesExplorerArrows": true,
+    "editor.cursorBlinking": "phase",
+    "window.titleBarStyle": "native",
+    "window.menuStyle": "custom",
+    "workbench.statusBar.visible": false,
+    "window.menuBarVisibility": "visible",
+    "workbench.activityBar.location": "top",
+    "workbench.editor.showTabs": "single",
+    "workbench.startupEditor": "none",
+    "terminal.integrated.fontFamily": "JetBrainsMono Nerd Font Mono",
+    "terminal.integrated.gpuAcceleration": "on",
+    "roo-cline.allowedCommands": [
+        "git log",
+        "git diff",
+        "git show",
+        "which node",
+        "which",
+        "npm test",
+        "npm install",
+        "tsc"
+    ],
+    "roo-cline.deniedCommands": [],
+    "zencoder.mcpServers": {
+        
+    
+    },
+    "snyk.advanced.cliPath": "/home/chickensoupe/home/chickensoupe/.local/share/snyk/vscode-cli/snyk-linux",
+    "snyk.folderConfigs": [
+        {
+            "folderPath": "/home/chickensoupe/scripts",
+            "baseBranch": ""
+        }
+    ],
+    "snyk.trustedFolders": [
+        "/home/chickensoupe/scripts"
+    ],
+    "snyk.yesWelcomeNotification": false,
+    "explorer.confirmPasteNative": false,
+    "editor.fontFamily": "JetBrainsMono Nerd Font",
+    "workbench.settings.applyToAllProfiles": [
+        "editor.fontFamily"
+    ],
+    "zencoder.shellTool.allowedCommands": [
+        "whoami",
+        "find",
+        "sort",
+        "cd",
+        "echo",
+        "ls",
+        "pwd",
+        "cat",
+        "head",
+        "tail",
+        "uname",
+        "id",
+        "env",
+        "printenv",
+        "df",
+        "free",
+        "ps",
+        "grep",
+        "uniq",
+        "wc",
+        "diff",
+        "dir",
+        "tree",
+        "chdir",
+        "type",
+        "help",
+        "ver",
+        "systeminfo",
+        "ipconfig",
+        "tasklist",
+        "hostname",
+        "netstat",
+        "which",
+        "awk",
+        "git status",
+        "git diff",
+        "git log",
+        "git branch",
+        "mkdir"
+    ],
+    "zencoder.inlineSuggestions.enable": false,
+    "qt-core.additionalQtPaths": [
+        {
+            "name": "Qt-5.15.17-linux-g++_from_PATH",
+            "path": "/usr/bin/qmake"
+        }
+    ],
+    "editor.inlineSuggest.experimental.emptyResponseInformation": false,
+    "editor.inlineSuggest.edits.allowCodeShifting": "never",
+    "editor.inlineSuggest.enabled": false,
+
+    
+}

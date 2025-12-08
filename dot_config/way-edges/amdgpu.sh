@@ -1,0 +1,1 @@
+amdgpu_top --json --single-gpu -n 1 | jq -r '.devices[0].gpu_activity.GFX.value' | awk '{printf \"%.2f%%\", $1}'

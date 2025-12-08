@@ -1,0 +1,11 @@
+max-visible=10
+layer=top
+font=TF2 Build 10
+background-color=#3E3E3E
+text-color=#F5E5C1
+border-color=#000000
+border-radius=1
+max-icon-size=48
+default-timeout=10000
+anchor=top-right
+margin=20
