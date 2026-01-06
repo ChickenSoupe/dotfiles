@@ -1,0 +1,32 @@
+[config]
+
+[templates]
+
+# User-defined templates
+# Add your custom templates below
+# Example:
+# [templates.myapp]
+# input_path = "~/.config/noctalia/templates/myapp.css"
+# output_path = "~/.config/myapp/theme.css"
+# post_hook = "myapp --reload-theme"
+
+# Remove this section and add your own templates
+#[templates.placeholder]
+#input_path = "/etc/xdg/quickshell/noctalia-shell/Assets/MatugenTemplates/noctalia.json"
+#output_path = "/home/chickensoupe/.cache/noctalia/placeholder.json"
+
+[templates.starship]
+input_path = '~/.config/noctalia/matugen/starship_template.toml'
+output_path = '~/.config/starship.toml'
+
+[templates.micro]
+input_path = '~/.config/noctalia/matugen/micro.micro'
+output_path = '~/.config/micro/colorschemes/matugen.micro'
+
+[templates.yazi]
+input_path = '~/.config/noctalia/matugen/yazi-theme.toml'
+output_path = '~/.config/yazi/theme.toml'
+
+[templates.btop]
+input_path = '~/.config/noctalia/matugen/btop.theme'
+output_path = '~/.config/btop/themes/matugen.theme'

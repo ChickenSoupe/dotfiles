@@ -8,6 +8,8 @@ require("bunny"):setup({
     { key = { "l", "s" }, path = "~/.local/share", desc = "Local share" },
     { key = { "l", "b" }, path = "~/.local/bin", desc = "Local bin" },
     { key = { "l", "t" }, path = "~/.local/state", desc = "Local state" },
+    { key = "m", path = "/run/media/chickensoupe", desc = "External Media" },
+    { key = "q", path ="/etc/xdg", desc = "root config location"},
   },
   desc_strategy = "filename",
   tabs = false,
