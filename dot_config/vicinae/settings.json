@@ -1,0 +1,105 @@
+// This configuration is merged with the default vicinae configuration file, which you can obtain by running the `vicinae config default` command.
+// Every item defined in this file takes precedence over the values defined in the default config or any other imported file.
+//
+// You can make manual edits to this file, however you should keep in mind that this file may be written to by vicinae when a configuration change is made through the GUI.
+// When that happens, any custom comments or formatting will be lost.
+//
+// If you want to maintain a configuration file with your own comments and formatting, you should create a separate file and add it to the 'imports' array.
+//
+// Learn more about configuration at https://docs.vicinae.com/config
+
+{
+   "$schema": "https://vicinae.com/schemas/config.json",
+   "font": {
+      "normal": {
+         "family": "JetBrainsMono NFM",
+         "size": 12
+      }
+   },
+   "theme": {
+      "dark": {
+         "name": "noctalia"
+      }
+   },
+   "launcher_window": {
+      "opacity": 1,
+      "client_side_decorations": {
+         "enabled": true
+      },
+      "compact_mode": {
+         "enabled": false
+      }
+   },
+   "favorites": [],
+   "providers": {
+      "@Rafo94/store.raycast.easy-ocr": {
+         "preferences": {
+            "tesseract_path": "/usr/bin/tesseract"
+         }
+      },
+      "@dagimg-dot/store.vicinae.wifi-commander": {
+         "entrypoints": {
+            "scan-wifi": {
+               "alias": "wifi"
+            }
+         }
+      },
+      "applications": {
+         "preferences": {
+            "paths": [
+               "/home/chickensoupe/.local/share/applications",
+               "/usr/share/applications"
+            ]
+         },
+         "entrypoints": {
+            "avahi-discover": {
+               "enabled": false
+            },
+            "bssh": {
+               "enabled": false
+            },
+            "bvnc": {
+               "enabled": false
+            },
+            "codium": {
+               "enabled": false
+            },
+            "vesktop": {
+               "alias": "discord"
+            }
+         }
+      },
+      "clipboard": {
+         "preferences": {
+            "encryption": false,
+            "ignorePasswords": false
+         }
+      },
+      "core": {
+         "entrypoints": {
+            "about": {
+               "enabled": false
+            },
+            "manage-fallback": {
+               "enabled": false
+            },
+            "report-bug": {
+               "enabled": false
+            },
+            "search-emojis": {
+               "alias": "emo"
+            },
+            "sponsor": {
+               "enabled": false
+            }
+         }
+      },
+      "power": {
+         "entrypoints": {
+            "hibernate": {
+               "enabled": false
+            }
+         }
+      }
+   }
+}
