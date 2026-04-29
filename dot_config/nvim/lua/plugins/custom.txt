@@ -1,0 +1,183 @@
+-- Custom plugins
+return {
+  -- File manager: Yazi
+  {
+    "mikavilpas/yazi.nvim",
+    event = "User BaseDefered",
+    cmd = { "Yazi", "Yazi cwd", "Yazi toggle" },
+    opts = {
+      open_for_directories = true,
+      floating_window_scaling_factor = 0.71,
+    },
+  },
+
+  -- AI Assistant: opencode.nvim
+  {
+    "nickjvandyke/opencode.nvim",
+    version = "*",
+    lazy = false,
+    dependencies = {
+      {
+        "folke/snacks.nvim",
+        optional = true,
+        opts = {
+          input = {},
+          picker = {
+            actions = {
+              opencode_send = function(...)
+                return require("opencode").snacks_picker_send(...)
+              end,
+            },
+            win = {
+              input = {
+                keys = {
+                  ["<a-a>"] = { "opencode_send", mode = { "n", "i" } },
+                },
+              },
+            },
+          },
+        },
+      },
+    },
+    config = function()
+      vim.g.opencode_opts = {
+        server = {
+          port = 9090,
+          start = function()
+            -- External opencode auto-detected if running with --port
+          end,
+        },
+      }
+      vim.o.autoread = true
+
+      vim.cmd([[nnoremap <F8> <cmd>lua require("opencode").toggle()<cr><cmd>redraw!<cr>]])
+      vim.cmd([[tnoremap <F8> <cmd>lua require("opencode").toggle()<cr>]])
+
+      vim.keymap.set({ "n", "x" }, "<leader>a", function()
+        require("opencode").ask("@this: ", { submit = true })
+      end, { desc = "Ask opencode…" })
+      vim.keymap.set({ "n", "x" }, "<leader>x", function()
+        require("opencode").select()
+      end, { desc = "Execute opencode action…" })
+
+      vim.keymap.set({ "n", "x" }, "go", function()
+        return require("opencode").operator("@this ")
+      end, { desc = "Add range to opencode", expr = true })
+      vim.keymap.set("n", "goo", function()
+        return require("opencode").operator("@this ") .. "_"
+      end, { desc = "Add line to opencode", expr = true })
+
+      vim.keymap.set("n", "<S-C-u>", function()
+        require("opencode").command("session.half.page.up")
+      end, { desc = "Scroll opencode up" })
+      vim.keymap.set("n", "<S-C-d>", function()
+        require("opencode").command("session.half.page.down")
+      end, { desc = "Scroll opencode down" })
+
+      vim.keymap.set("n", "+", "<C-a>", { desc = "Increment under cursor", noremap = true })
+      vim.keymap.set("n", "-", "<C-x>", { desc = "Decrement under cursor", noremap = true })
+    end,
+  },
+
+  -- Visual whitespace highlighter
+  {
+    "mcauley-penney/visual-whitespace.nvim",
+    event = "ModeChanged *:[vV\x16]",
+  },
+
+  -- Multi-cursor editing
+  {
+    "jake-stewart/multicursor.nvim",
+    branch = "1.0",
+    lazy = false,
+    config = function()
+      local mc = require("multicursor-nvim")
+      mc.setup()
+
+      local set = vim.keymap.set
+
+      set({ "n", "x" }, "<c-up>", function()
+        mc.lineAddCursor(-1)
+      end)
+      set({ "n", "x" }, "<c-down>", function()
+        mc.lineAddCursor(1)
+      end)
+
+      set({ "n", "x" }, "<a-up>", function()
+        mc.lineSkipCursor(-1)
+      end)
+      set({ "n", "x" }, "<a-down>", function()
+        mc.lineSkipCursor(1)
+      end)
+
+      set({ "n", "x" }, "<c-,>", function()
+        mc.matchAddCursor(1)
+      end)
+      set({ "n", "x" }, "<c-.>", function()
+        mc.matchAddCursor(-1)
+      end)
+      set({ "n", "x" }, "<a-,>", function()
+        mc.matchSkipCursor(1)
+      end)
+      set({ "n", "x" }, "<a-.>", function()
+        mc.matchSkipCursor(-1)
+      end)
+
+      set({ "n", "x" }, "<c-left>", function()
+        mc.prevCursor()
+      end)
+      set({ "n", "x" }, "<c-right>", function()
+        mc.nextCursor()
+      end)
+
+      set("n", "<c-leftmouse>", mc.handleMouse)
+      set("n", "<c-leftdrag>", mc.handleMouseDrag)
+      set("n", "<c-leftrelease>", mc.handleMouseRelease)
+
+      set({ "n", "x" }, "<c-q>", mc.toggleCursor)
+
+      mc.addKeymapLayer(function(layerSet)
+        layerSet({ "n", "x" }, "<leader>x", mc.deleteCursor)
+
+        layerSet("n", "<esc>", function()
+          if not mc.cursorsEnabled() then
+            mc.enableCursors()
+          else
+            mc.clearCursors()
+          end
+        end)
+      end)
+
+      local hl = vim.api.nvim_set_hl
+      hl(0, "MultiCursorCursor", { reverse = true })
+      hl(0, "MultiCursorVisual", { link = "Visual" })
+      hl(0, "MultiCursorSign", { link = "SignColumn" })
+      hl(0, "MultiCursorMatchPreview", { link = "Search" })
+      hl(0, "MultiCursorDisabledCursor", { reverse = true })
+      hl(0, "MultiCursorDisabledVisual", { link = "Visual" })
+      hl(0, "MultiCursorDisabledSign", { link = "SignColumn" })
+    end,
+  },
+
+  -- Toggle relative line numbers
+  {
+    "sitiom/nvim-numbertoggle",
+    lazy = false,
+  },
+
+  -- Flutter/Dart development tools
+  {
+    "nvim-flutter/flutter-tools.nvim",
+    lazy = false,
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+      "stevearc/dressing.nvim",
+    },
+    config = function()
+      require("flutter-tools").setup({
+        fvm = true,
+        flutter_path = os.getenv("HOME") .. "/fvm/default/bin/flutter",
+      })
+    end,
+  },
+}

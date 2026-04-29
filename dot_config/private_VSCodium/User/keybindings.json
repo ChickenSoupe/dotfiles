@@ -16,5 +16,18 @@
     {
         "key": "ctrl+alt+b",
         "command": "-workbench.action.toggleAuxiliaryBar"
+    },
+    {
+        "key": "ctrl+shift+escape",
+        "command": "-opencode.openNewTerminal"
+    },
+    {
+        "key": "ctrl+capslock",
+        "command": "workbench.action.createTerminalEditor",
+        "when": "terminalProcessSupported"
+    },
+    {
+        "key": "ctrl+alt+s",
+        "command": "easy-codesnap.snap"
     }
 ]

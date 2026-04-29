@@ -5,7 +5,7 @@ options="󰊠 Toggle Refresh Rate
 󱐋 Toggle Conservation Mode
 󰊗 Toggle Game Mode"
 
-choice=$(echo -e "$options" | vicinae dmenu --placeholder "System Utils")
+choice=$(echo -e "$options" | vicinae dmenu --no-quick-look --placeholder "System Utils")
 
 case "$choice" in
     "󰊠 Toggle Refresh Rate")
@@ -20,13 +20,12 @@ case "$choice" in
         fi
         
         # Apply new refresh rate
-        hyprctl keyword monitor "eDP-1,2880x1800@$new_rate,0x0,1.5"
+        hyprctl keyword monitor "eDP-1,2880x1800@$new_rate,0x0,1.8"
         notify-send "Hyprland" "Switched eDP-1 to $new_rate Hz"
         ;;
     
     "󱐋 Toggle Conservation Mode")
         path="/sys/bus/platform/drivers/ideapad_acpi/VPC2004:00/conservation_mode"
-        
         if [ ! -e "$path" ]; then
             notify-send -u critical "Error" "Conservation mode file not found"
             exit 1

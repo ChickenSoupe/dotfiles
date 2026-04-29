@@ -17,8 +17,11 @@
       }
    },
    "theme": {
+      "light": {
+         "name": "matugen"
+      },
       "dark": {
-         "name": "noctalia"
+         "name": "matugen"
       }
    },
    "launcher_window": {
@@ -35,6 +38,13 @@
       "@Rafo94/store.raycast.easy-ocr": {
          "preferences": {
             "tesseract_path": "/usr/bin/tesseract"
+         }
+      },
+      "@ajaypremshankar/store.raycast.vim-bro": {
+         "entrypoints": {
+            "index": {
+               "alias": "vim"
+            }
          }
       },
       "@dagimg-dot/store.vicinae.wifi-commander": {
@@ -73,6 +83,11 @@
          "preferences": {
             "encryption": false,
             "ignorePasswords": false
+         },
+         "entrypoints": {
+            "history": {
+               "alias": ";"
+            }
          }
       },
       "core": {

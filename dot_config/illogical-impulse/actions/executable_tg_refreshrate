@@ -1,0 +1,15 @@
+#!/bin/bash
+
+# Get current refresh rate of eDP-1
+current_rate=$(hyprctl monitors | grep -A 10 "Monitor eDP-1" | grep -oP '\d+x\d+@\K\d+')
+
+# Toggle between 60 and 120
+if [ "$current_rate" = "120" ]; then
+    new_rate=60
+else
+    new_rate=120
+fi
+
+# Apply new refresh rate
+hyprctl keyword monitor "eDP-1,2880x1800@$new_rate,0x0,1.8"
+notify-send -e "Hyprland" "Switched eDP-1 to ${new_rate}Hz"

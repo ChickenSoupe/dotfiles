@@ -1,0 +1,129 @@
+{
+  "$schema": "https://github.com/fastfetch-cli/fastfetch/raw/dev/doc/json_schema.json",
+  "logo": {
+    "type": "none"
+  },
+  "display": {
+    "separator": " ",
+    "size": {
+      "maxPrefix": "GB",
+      "spaceBeforeUnit": "always",
+      "binaryPrefix": "si"
+    }
+  },
+  "modules": [
+    // {
+    //   "type": "custom",
+    //   "format": "╭─────╮ ╭─────╮ ╭─────╮ ╭─╮ ╭─╮ ╭─╮ ╭─╮    ╭─────╮ ╭─────╮\n│ ╭───╯ │ ╭─╮ │ │ ╭───╯ │ │ │ │ │ │ │ │    │ ╭─╮ │ │ ╭───╯\n│ │     │ ╰─╯ │ │ │     │ ╰─╯ │ │ ╰─╯ │    │ │ │ │ │ ╰───╮\n│ │     │ ╭─╮ │ │ │     │ ╭─╮ │ ╰───╮ │    │ │ │ │ ╰───╮ │\n│ ╰───╮ │ │ │ │ │ ╰───╮ │ │ │ │ ╭───╯ │    │ ╰─╯ │ ╭───╯ │\n╰─────╯ ╰─╯ ╰─╯ ╰─────╯ ╰─╯ ╰─╯ ╰─────╯    ╰─────╯ ╰─────╯"
+    // },
+    //{
+    //  "type": "custom",
+    //  "format": "{#magenta}╭─────╮{#red} ╭─────╮{#yellow} ╭─────╮{#green} ╭─╮ ╭─╮{#cyan} ╭─╮ ╭─╮{#blue}   ╭─────╮{#white} ╭─────╮{#}\n{#magenta}│ ╭───╯{#red} │ ╭─╮ │{#yellow} │ ╭───╯{#green} │ │ │ │{#cyan} │ │ │ │{#blue}   │ ╭─╮ │{#white} │ ╭───╯{#}\n{#magenta}│ │    {#red} │ ╰─╯ │{#yellow} │ │    {#green} │ ╰─╯ │{#cyan} │ ╰─╯ │{#blue}   │ │ │ │{#white} │ ╰───╮{#}\n{#magenta}│ │    {#red} │ ╭─╮ │{#yellow} │ │    {#green} │ ╭─╮ │{#cyan} ╰───╮ │{#blue}   │ │ │ │{#white} ╰───╮ │{#}\n{#magenta}│ ╰───╮{#red} │ │ │ │{#yellow} │ ╰───╮{#green} │ │ │ │{#cyan} ╭───╯ │{#blue}   │ ╰─╯ │{#white} ╭───╯ │{#}\n{#magenta}╰─────╯{#red} ╰─╯ ╰─╯{#yellow} ╰─────╯{#green} ╰─╯ ╰─╯{#cyan} ╰─────╯{#blue}   ╰─────╯{#white} ╰─────╯{#}\n"
+    //},
+    //icon 
+    {
+      "type": "custom",
+      "key": "╭───────────╮"
+    },
+    {
+      "type": "title",
+      "key": "│ {#34}{#cyan}{icon} User    {#keys}│",
+      "format": "{user-name-colored}@{host-name-colored}"
+    },
+    {
+      "type": "host",
+      "key": "│ {#34}{#cyan}󰌢 Laptop  {#keys}│",
+      "format": "{name} {uuid} {family}"
+    },
+    {
+      "type": "os",
+      "key": "│ {#34}{#cyan}{icon} Distro  {#keys}│",
+      "format": "{pretty-name}"
+    },
+    {
+      "type": "kernel",
+      "key": "│ {#35}{#cyan}{icon} Kernel  {#keys}│",
+      "format": "{release}"
+    },
+    {
+      "type": "wm",
+      "key": "│ {#36}{#green}󰇄 WM      {#keys}│",
+      "format": "{pretty-name}"
+    },
+    {
+      "type": "de",
+      "key": "│ {#36}{#green}󰇄 desktop {#keys}│"
+    },
+    {
+      "type": "terminal",
+      "key": "│ {#31}{#green} Term    {#keys}│",
+      "format": "{pretty-name}"
+    },
+    {
+      "type": "shell",
+      "key": "│ {#32}{#green} Shell   {#keys}│",
+      "format": "{pretty-name}"
+    },
+    {
+      "type": "packages",
+      "key": "│ {#33}{#yellow}󰮯 pacman  {#keys}│",
+      "format": "{pacman}"
+    },
+    {
+      "type": "command",
+      "key": "│ {#35}{#yellow} Age     {#keys}│",
+      "text": "birth_install=$(stat -c %W /); current=$(date +%s); days_difference=$(( (current - birth_install) / 86400 )); birth_install=$(stat -c %W /); echo $(date -d @$birth_install '+%d %b %Y') $days_difference days"
+    },
+    //{
+    //  "type": "packages",
+    //  "key": "│ {#33}{#yellow} flatpak {#keys}│",
+    //  "format": "{flatpak-system}"
+    //},
+    {
+      "type": "cpu",
+      "key": "│ {#33}{#red}󰍛 cpu     {#keys}│",
+      // "showPeCoreCount": true
+      "format": "{name}"
+    },
+    {
+      "type": "gpu",
+      "key": "│ {#35}{#red}󰢮 gpu     {#keys}│",
+      "hideType": "integrated",
+      "format": "{1} {2}"
+    },
+    {
+      "type": "memory",
+      "key": "│ {#36}{#red} memory  {#keys}│",
+      "format": "{used}  {#red}{#} {total}"
+    },
+    {
+      "type": "swap",
+      "key": "│ {#36}{#red}{icon} swap   {#keys} │",
+      "format": "{used}  {#red}{#} {total}"
+    },
+    {
+      "type": "disk",
+      "key": "│ {#34}{#blue} disk    {#keys}│",
+      // "folders": "/"
+      "format": "{size-used} {#blue}{#} {size-total}"
+    },
+    {
+      "type": "uptime",
+      "key": "│ {#33}{#magenta}󰅐 uptime  {#keys}│"
+    },
+    {
+      "type": "vulkan",
+      "key": "│ {#36}{#magenta}󰣖 Vulkan  {#keys}│",
+      "format": "{driver} {api-version}"
+    },
+    {
+      "type": "custom",
+      "key": "│ {#39} colors  {#keys}│",
+      "format": "{#black}{#} {#white}{#} {#red}{#} {#green}{#} {#yellow}{#} {#blue}{#} {#magenta}{#} {#cyan}{#} "
+    },
+    {
+      "type": "custom",
+      "key": "╰───────────╯"
+    }
+  ]
+}

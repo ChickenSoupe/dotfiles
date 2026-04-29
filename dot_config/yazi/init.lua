@@ -1,23 +1,3 @@
-require("bunny"):setup({
-  hops = {
-    { key = { "h", "h" }, path = "~", desc = "Home" },
-    { key = { "h", "m" }, path = "~/Music", desc = "Music" },
-    { key = { "h", "d" }, path = "~/Documents", desc = "Documents" },
-    { key = { "h", "k" }, path = "~/Desktop", desc = "Desktop" },
-    { key = "c", path = "~/.config", desc = "Config files" },
-    { key = { "l", "s" }, path = "~/.local/share", desc = "Local share" },
-    { key = { "l", "b" }, path = "~/.local/bin", desc = "Local bin" },
-    { key = { "l", "t" }, path = "~/.local/state", desc = "Local state" },
-    { key = "m", path = "/run/media/chickensoupe", desc = "External Media" },
-    { key = "q", path ="/etc/xdg", desc = "root config location"},
-  },
-  desc_strategy = "filename",
-  tabs = false,
-  ephemeral = false,
-  notify = true, -- notify after hopping, default is false
-  fuzzy_cmd = "fzf",
-})
-
 Header:children_add(function(self)
   return "YAZI"
 end, 1000, Header.RIGHT)
@@ -34,4 +14,13 @@ require("starship"):setup({
     flags_after_prompt = true, -- Default: true
     -- Custom starship configuration file to use
     config_file = "~/.config/starship.toml", -- Default: nil
+})
+
+require("recycle-bin"):setup()
+require("duckdb"):setup({
+  mode = "summarized",            -- Default: "summarized"
+  cache_size = 1000,                          -- Default: 500
+  row_id = "dynamic",             -- Default: false
+  minmax_column_width = 21,                  -- Default: 21
+  column_fit_factor = 10,                  -- Default: 10.0
 })

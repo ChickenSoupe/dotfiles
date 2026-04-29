@@ -1,0 +1,25 @@
+#!/bin/bash
+
+# Get all window addresses and PIDs
+windows=$(hyprctl clients -j | jq -c '.[]')
+
+if [ -z "$windows" ]; then
+    notify-send -e "Hyprland" "No open windows to close."
+    exit 0
+fi
+
+# Send close signals to everything
+echo "$windows" | while read -r window; do
+    addr=$(echo "$window" | jq -r '.address')
+    hyprctl dispatch closewindow address:"$addr"
+done
+
+# Wait a moment for apps to process the request or spawn dialogs
+sleep 0.3
+
+# Check if anything is still open
+remaining_count=$(hyprctl clients -j | jq '. | length')
+
+if [ "$remaining_count" -gt 0 ]; then
+    notify-send -e "Hyprland" "$remaining_count window(s) still open (waiting for input)" -i dialog-warning
+fi

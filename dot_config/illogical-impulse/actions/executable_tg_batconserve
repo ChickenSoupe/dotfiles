@@ -1,0 +1,18 @@
+#!/bin/bash
+
+path="/sys/bus/platform/drivers/ideapad_acpi/VPC2004:00/conservation_mode"
+
+if [ ! -e "$path" ]; then
+    notify-send -u critical "Error" "Conservation mode file not found"
+    exit 1
+fi
+
+current_status=$(cat "$path")
+
+if [ "$current_status" -eq 0 ]; then
+    echo 1 | pkexec tee "$path" > /dev/null
+    notify-send -e "Battery" "Conservation Mode enabled (80% cap)"
+else
+    echo 0 | pkexec tee "$path" > /dev/null
+    notify-send -e "Battery" "Conservation Mode disabled (full charge)"
+fi
