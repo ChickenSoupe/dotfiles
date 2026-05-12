@@ -131,6 +131,12 @@ return {
 						LineNr = {
 							fg = "{{ colors.primary.default.hex }}",
 						},
+						-- Diff highlights (GitHub dark style)
+						DiffAdd = { bg = "#0d4a23" },
+						DiffDelete = { bg = "#4a0d11" },
+						DiffChange = { bg = "#1c2c3f" },
+						DiffText = { bg = "#1f4a7a" },
+						DiffTextAdd = { link = "DiffText" },
 					}
 				end,
 			},

@@ -61,7 +61,7 @@
     "workbench.secondarySideBar.showLabels": false,
     "terminal.integrated.shellIntegration.enabled": false,
     "workbench.colorTheme": "Material Code",
-    "material-code.primaryColor": "#4171C2",
+    "material-code.primaryColor": "#6277F2",
     "editor.cursorSmoothCaretAnimation": "on",
     "editor.wordWrap": "on",
     "workbench.externalBrowser": "helium-browser",

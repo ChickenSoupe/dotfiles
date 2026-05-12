@@ -23,7 +23,7 @@ end
 alias ls 'eza -l --color=always --group-directories-first --icons'
 alias clear "printf '\033[2J\033[3J\033[1;1H'"
 alias update='sudo cachyos-rate-mirrors && paru'
-alias paruf "paru -Slq | strings | grep -E '^[a-zA-Z0-9_.+-]+\$' | fzf --multi --layout=reverse --ansi --preview 'paru -Sii {1}' --preview-window=down:75% --bind 'ctrl-u:preview-half-page-up,ctrl-d:preview-half-page-down' | xargs -ro paru -S"
+alias paruf="paru -Slq | grep -aE '^[a-zA-Z0-9_.+-]+\$' | fzf --multi --layout=reverse --ansi --preview 'paru -Sii {1}' --preview-window=down:75% --bind 'ctrl-u:preview-half-page-up,ctrl-d:preview-half-page-down' | xargs -ro paru -S"
 alias yayf "yay -Slq | strings | grep -E '^[a-zA-Z0-9_.+-]+\$' | fzf --multi --layout=reverse --ansi --preview 'yay -Sii {1}' --preview-window=down:75% --bind 'ctrl-u:preview-half-page-up,ctrl-d:preview-half-page-down' | xargs -ro yay -S"
 alias zim 'nvim (zi)'
 

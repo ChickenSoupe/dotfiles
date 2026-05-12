@@ -1,0 +1,6 @@
+hl.on("hyprland.start", function()
+	hl.exec_cmd("fcitx5 -d &")
+	hl.exec_cmd("arch-update --tray")
+	hl.exec_cmd("hyprctl setcursor Bibata-Modern-Ice 24")
+	hl.exec_cmd("gsettings set org.gnome.desktop.interface icon-theme Papirus")
+end)

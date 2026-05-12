@@ -17,6 +17,46 @@ local function focus_opencode()
   end)
 end
 
+-- OpenCode Keymaps:
+--   gO                    -- Disable default goto operator
+--   <leader>aa           -- Toggle OpenCode panel
+--   <leader>aq           -- Stop/Close OpenCode
+--   <leader>as           -- Select action (visual/normal)
+--   <leader>ai           -- Ask with empty prompt
+--   <leader>aI           -- Ask with @this context
+--   <leader>ab           -- Ask about buffer content
+--   <leader>agd          -- Ask with git diff
+--   <leader>ax           -- group: diagnostics/quickfix
+--   <leader>axx          -- Ask with quickfix
+--   <leader>axd         -- Ask with diagnostics
+--   <leader>av          -- Ask with visible text
+--   <leader>aB          -- Ask with all buffers
+--   <leader>am          -- Ask with marks
+--   <leader>ape         -- Explain selected text
+--   <leader>apf         -- Fix selected text
+--   <leader>apd         -- Diagnose selected text
+--   <leader>apr         -- Review selected text
+--   <leader>apt         -- Test selected text
+--   <leader>apo         -- Optimize selected text
+--   <leader>an          -- New session
+--   <leader>ac          -- Close session
+--   go                  -- Add range to OpenCode (operator)
+--   goo                 -- Add line to OpenCode
+--
+-- Diff Edit Keymaps (when opencode edits file):
+--   da                  -- Accept entire edit
+--   dr                  -- Reject entire edit
+--   ]c                  -- Next change
+--   [c                  -- Prev change
+--   dp                  -- Accept hunk only
+--   do                  -- Reject hunk only
+--   q                   -- Close diff
+--
+-- Terminal Keymaps (inside OpenCode terminal):
+--   <C-h/j/k/l>         -- Navigate windows
+--   <C-u/d>             -- Half page scroll
+--   <C-b/f>             -- Full page scroll
+
 return {
   recommended = true,
 
@@ -36,10 +76,7 @@ return {
     end,
   },
 
-  {
-    "folke/snacks.nvim",
-  },
-
+  -- Keymaps: toggle, stop, select, ask (empty/context/buffer/diff/quickfix/diagnostics/visible/buffers/marks/grapple), prompt actions (explain/fix/diagnose/review/test/optimize), session (new/close), operator (go/goo), terminal nav/scroll
   {
     "nickjvandyke/opencode.nvim",
     version = "*",
@@ -248,17 +285,16 @@ return {
     config = function()
       vim.g.opencode_opts = {}
 
-      -- Fix for marksman crashing on opencode buffers
+      -- Fix for marksman crashing on opencode terminal buffers
       vim.api.nvim_create_autocmd({ "BufAdd", "BufWinEnter", "TermOpen" }, {
+        pattern = "*:opencode --port*",
         callback = function(event)
-          if vim.api.nvim_buf_get_name(event.buf):match("opencode") then
-            vim.bo[event.buf].filetype = "opencode"
-            vim.b[event.buf].lsp_ignore = true
-            -- Detach any clients that might have already attached
-            local clients = vim.lsp.get_clients({ bufnr = event.buf })
-            for _, client in ipairs(clients) do
-              vim.lsp.buf_detach_client(event.buf, client.id)
-            end
+          vim.bo[event.buf].filetype = "opencode"
+          vim.b[event.buf].lsp_ignore = true
+          -- Detach any clients that might have already attached
+          local clients = vim.lsp.get_clients({ bufnr = event.buf })
+          for _, client in ipairs(clients) do
+            vim.lsp.buf_detach_client(event.buf, client.id)
           end
         end,
       })
@@ -322,70 +358,3 @@ return {
     end,
   },
 }
--- Old AI Assistant: opencode.nvim
--- return {
---   "nickjvandyke/opencode.nvim",
---   version = "*",
---   lazy = false,
---   dependencies = {
---     {
---       "folke/snacks.nvim",
---       optional = true,
---       opts = {
---         input = {},
---         picker = {
---           actions = {
---             opencode_send = function(...)
---               return require("opencode").snacks_picker_send(...)
---             end,
---           },
---           win = {
---             input = {
---               keys = {
---                 ["<a-a>"] = { "opencode_send", mode = { "n", "i" } },
---               },
---             },
---           },
---         },
---       },
---     },
---   },
---   config = function()
---     vim.g.opencode_opts = {
---       server = {
---         port = 9090,
---         start = function()
---           -- External opencode auto-detected if running with --port
---         end,
---       },
---     }
---     vim.o.autoread = true
---
---     vim.cmd([[nnoremap <F8> <cmd>lua require("opencode").toggle()<cr><cmd>redraw!<cr>]])
---     vim.cmd([[tnoremap <F8> <cmd>lua require("opencode").toggle()<cr>]])
---
---     vim.keymap.set({ "n", "x" }, "<leader>aa", function()
---       require("opencode").ask("@this: ", { submit = true })
---     end, { desc = "Ask opencode…" })
---     vim.keymap.set({ "n", "x" }, "<leader>ax", function()
---       require("opencode").select()
---     end, { desc = "Execute opencode action…" })
---
---     vim.keymap.set({ "n", "x" }, "go", function()
---       return require("opencode").operator("@this ")
---     end, { desc = "Add range to opencode", expr = true })
---     vim.keymap.set("n", "goo", function()
---       return require("opencode").operator("@this ") .. "_"
---     end, { desc = "Add line to opencode", expr = true })
---
---     vim.keymap.set("n", "<S-C-u>", function()
---       require("opencode").command("session.half.page.up")
---     end, { desc = "Scroll opencode up" })
---     vim.keymap.set("n", "<S-C-d>", function()
---       require("opencode").command("session.half.page.down")
---     end, { desc = "Scroll opencode down" })
---
---     vim.keymap.set("n", "+", "<C-a>", { desc = "Increment under cursor", noremap = true })
---     vim.keymap.set("n", "-", "<C-x>", { desc = "Decrement under cursor", noremap = true })
---   end,
--- }

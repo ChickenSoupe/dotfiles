@@ -8,3 +8,14 @@ vim.opt.sidescrolloff = 8 -- Same but for side scrolling.
 vim.opt.guicursor = "n:blinkon200-blinkoff200,i-ci-ve:ver25-blinkon200-blinkoff200" -- Enable cursor blink.
 vim.opt.title = true
 vim.opt.winborder = "rounded"
+vim.opt.wrap = true
+vim.opt.diffopt = {
+  "internal",
+  "filler",
+  -- "closeoff",
+  -- "indent-heuristic",
+  -- "algorithm:histogram",
+  -- "linematch:60",
+  -- "vertical",
+  -- "context:3",
+}

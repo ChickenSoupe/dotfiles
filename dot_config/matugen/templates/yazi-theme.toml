@@ -171,8 +171,8 @@ rules = [
     { mime = "application/{pdf,doc,rtf}", fg = "#a6e3a1" },
 
     # Special files
-    { name = "*", is = "orphan", bg = "{{colors.error_container.default.hex}}" },
-    { name = "*", is = "exec", fg = "{{colors.on_error_container.default.hex}}" },
+    { url = "*", is = "orphan", bg = "{{colors.error_container.default.hex}}" },
+    { url = "*", is = "exec", fg = "{{colors.on_error_container.default.hex}}" },
 
     # Fallback
     { url = "*", fg = "{{colors.on_surface.default.hex}}" },
@@ -202,7 +202,7 @@ dirs  = [
 	{ name = "Videos", text = "", fg = "{{colors.primary.default.hex}}" },
   # Custom directories
   { name = "Games", text = "", fg = "{{colors.primary.default.hex}}" },
-  { name = "projects", text = "", fg = "{{colors.primary.default.hex}}" },
+  { name = "Projects", text = "", fg = "{{colors.primary.default.hex}}" },
   { name = "scripts", text = "", fg = "{{colors.primary.default.hex}}" },
   { name = "templates", text = "󰷈", fg = "{{colors.primary.default.hex}}" },
 ]

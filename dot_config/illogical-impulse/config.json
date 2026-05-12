@@ -6,7 +6,7 @@
   },
   "appearance": {
     "extraBackgroundTint": true,
-    "fakeScreenRounding": 0,
+    "fakeScreenRounding": 2,
     "fonts": {
       "expressive": "Space Grotesk",
       "iconNerd": "JetBrains Mono NF",
@@ -24,7 +24,7 @@
       "automatic": true,
       "backgroundTransparency": 1,
       "contentTransparency": 0.3,
-      "enable": false
+      "enable": true
     },
     "wallpaperTheming": {
       "enableAppsAndShell": true,
@@ -67,7 +67,7 @@
       "workspaceZoom": 1
     },
     "thumbnailPath": "/home/chickensoupe/.config/hypr/custom/scripts/mpvpaper_thumbnails/coffee-shop.3840x2160.mp4.jpg",
-    "wallpaperPath": "/home/chickensoupe/Pictures/Wallpapers/normal/Starry-Night-Man.png",
+    "wallpaperPath": "/home/chickensoupe/Pictures/Wallpapers/normal/Sts2_Regent.png",
     "widgets": {
       "clock": {
         "cookie": {
@@ -101,7 +101,7 @@
         "placementStrategy": "leastBusy",
         "quote": {
           "enable": false,
-          "text": ""
+          "text": "Warn me"
         },
         "showOnlyWhenLocked": true,
         "style": "cookie",
@@ -241,7 +241,7 @@
       "sourceLanguage": "auto",
       "targetLanguage": "English"
     },
-    "ui": "auto"
+    "ui": "en_US"
   },
   "launcher": {
     "pinnedApps": [
