@@ -59,11 +59,6 @@ rev = "fa68711"
 hash = "8714306b5cac6359edbacbf545fbd691"
 
 [[plugin.deps]]
-use = "wylie102/duckdb"
-rev = "3f8c863"
-hash = "87b9233a74325e95011670ed20bbd0d4"
-
-[[plugin.deps]]
 use = "KKV9/compress"
 rev = "46a6b9f"
 hash = "771af2becc575a3f43d0542de823969d"

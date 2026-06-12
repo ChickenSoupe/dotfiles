@@ -14,7 +14,7 @@ show_hidden = false
 show_symlink = true
 scrolloff = 5
 mouse_events = ["click", "scroll", "drag", "move"]
-# title_format = "Yazi: {cwd}"
+title_format = "Yazi"
 
 [preview]
 tab_size = 2
@@ -176,10 +176,6 @@ previewers = [
     # { mime = "application/ms-*", run = "office" },
     # { mime = "application/msword", run = "office" },
     # { url = "*.docx", run = "office" },
-    # DuckDB
-    { url = "*.csv", run = "duckdb", multi = false },
-    { url = "*.tsv", run = "duckdb", multi = false },
-    # { url = "*.xlsx", run = "duckdb", multi = false }
 
   ]
   prepend_previewers = [
@@ -192,21 +188,14 @@ previewers = [
     { url = "*.md",     run = 'faster-piper --rely-on-preloader' },
     { url = "*.tar*",   run = 'faster-piper --rely-on-preloader --format=url' },
     { url = "*.txt.gz", run = 'faster-piper --rely-on-preloader' },
+    { url = "*.csv",    run = 'faster-piper -- mlr --lazy-quotes --ragged --icsv --opprint cat "$1"' },
+    { url = "*.tsv",    run = 'faster-piper -- mlr --lazy-quotes --ragged --itsv --opprint cat "$1"' },
     # Office Documents
     { mime = "application/openxmlformats-officedocument.*", run = "office" },
     { mime = "application/oasis.opendocument.*", run = "office" },
     { mime = "application/ms-*", run = "office" },
     { mime = "application/msword", run = "office" },
     { url = "*.docx", run = "office" },
-    # DuckDB
-    { url = "*.csv", run = "duckdb" },
-    { url = "*.tsv", run = "duckdb" },
-    # { url = "*.json", run = "duckdb" },
-    { url = "*.parquet", run = "duckdb" },
-    { url = "*.txt", run = "duckdb" },
-    { url = "*.xlsx", run = "duckdb" },
-    { url = "*.db", run = "duckdb" },
-    { url = "*.duckdb", run = "duckdb" }
 
   ]
   # There are more extensions which are supported by mediainfo.

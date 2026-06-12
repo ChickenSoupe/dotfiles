@@ -122,7 +122,11 @@ keymap = [
 	{ on = [ "g", "h" ],       run = "cd ~",             desc = "Go to the home directory" },
 	{ on = [ "g", "c" ],       run = "cd ~/.config",     desc = "Go to the config directory" },
 	{ on = [ "g", "d" ],       run = "cd ~/Downloads",   desc = "Go to the downloads directory" },
-	{ on = [ "g", "m" ],       run = "cd /run/media/${USER}",   desc = "Go to the mounted drives" },
+	{ on = [ "g", "o" ],       run = "cd ~/Documents",   desc = "Go to the documents directory" },
+	{ on = [ "g", "p" ],       run = "cd ~/Pictures",    desc = "Go to the pictures directory" },
+	{ on = [ "g", "m" ],       run = "cd ~/Music",       desc = "Go to the music directory" },
+	{ on = [ "g", "s" ],       run = "cd ~/Games",       desc = "Go to the games directory" },
+	{ on = [ "g", "u" ],       run = "cd /run/media/${USER}",   desc = "Go to the mounted drives" },
 	{ on = [ "g", "<Space>" ], run = "cd --interactive", desc = "Go to a directory interactively" },
 
 	# Tabs
@@ -334,10 +338,10 @@ on   = [ "C", "a", "u" ]
 run  = "plugin compress -phl"
 desc = "Archive selected files (password+header+level)"
 
-[[mgr.prepend_keymap]]
-on = ["`"]
-desc = "Command palette (fzf)"
-run = "plugin command-palette"
+# [[mgr.prepend_keymap]]
+# on = ["`"]
+# desc = "Command palette (fzf)"
+# run = "plugin command-palette"
 
 [[mgr.prepend_keymap]]
 on  = ["M"]
@@ -355,27 +359,27 @@ run  = "plugin lazygit"
 desc = "run lazygit"
 
 [[mgr.prepend_keymap]]
-on = ["R","b"]
+on = ["g","r"]
 run = "plugin recycle-bin"
 desc = "Open Recycle Bin menu"
 
-[[mgr.prepend_keymap]]
-on = "H"
-run = "plugin duckdb -1"
-desc = "Scroll one column to the left"
-
-[[mgr.prepend_keymap]]
-on = "L"
-run = "plugin duckdb +1"
-desc = "Scroll one column to the right"
-
-[[mgr.prepend_keymap]]
-on = ["g", "o"]
-run = "plugin duckdb -open"
-desc = "open with duckdb"
-
-[[mgr.prepend_keymap]]
-on = ["g", "u"]
-run = "plugin duckdb -ui"
-desc = "open with duckdb ui"
+# [[mgr.prepend_keymap]]
+# on = "H"
+# run = "plugin duckdb -1"
+# desc = "Scroll one column to the left"
+#
+# [[mgr.prepend_keymap]]
+# on = "L"
+# run = "plugin duckdb +1"
+# desc = "Scroll one column to the right"
+#
+# [[mgr.prepend_keymap]]
+# on = ["g", "o"]
+# run = "plugin duckdb -open"
+# desc = "open with duckdb"
+#
+# [[mgr.prepend_keymap]]
+# on = ["g", "u"]
+# run = "plugin duckdb -ui"
+# desc = "open with duckdb ui"
 
