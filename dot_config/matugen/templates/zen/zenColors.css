@@ -69,6 +69,20 @@ tooltip{
   background: {{colors.surface_dim.default.hex}} !important;
 }
 
+#PanelUI-menu-button .toolbarbutton-icon,
+#downloads-button .toolbarbutton-icon,
+#unified-extensions-button .toolbarbutton-icon {
+  fill: {{colors.primary.default.hex}} !important;
+  color: {{colors.primary.default.hex}} !important;
+}
+
+#PanelUI-menu-button .toolbarbutton-badge-stack,
+#downloads-button .toolbarbutton-badge-stack,
+#unified-extensions-button .toolbarbutton-badge-stack {
+  fill: {{colors.primary.default.hex}} !important;
+  color: {{colors.primary.default.hex}} !important;
+}
+
 toolbar .toolbarbutton-1 {
   &:not([disabled]) {
     &:is([open], [checked]) > :is(.toolbarbutton-icon, .toolbarbutton-text, .toolbarbutton-badge-stack){
@@ -200,6 +214,11 @@ hbox#titlebar {
 .tabbrowser-tab[pending="true"] {
   filter: grayscale(1);
   opacity: 0.5;
+}
+
+/* Hide loading/progress bars */
+#urlbar-progress {
+  display: none !important;
 }
 
 /* Hide bottom buttons area unless tab sidebar is hovered */

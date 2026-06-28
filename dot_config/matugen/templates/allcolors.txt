@@ -1,0 +1,20 @@
+
+<* for name, color in colors *>
+─── {{ name }} ───────────────────────────────
+  default  => {{ color.default.hex }}  |  rgb({{ color.default.red }}, {{ color.default.green }}, {{ color.default.blue }})  |  hsl({{ color.default.hue }}, {{ color.default.saturation }}%, {{ color.default.lightness }}%)
+  light    => {{ color.light.hex }}  |  rgb({{ color.light.red }}, {{ color.light.green }}, {{ color.light.blue }})  |  hsl({{ color.light.hue }}, {{ color.light.saturation }}%, {{ color.light.lightness }}%)
+  dark     => {{ color.dark.hex }}  |  rgb({{ color.dark.red }}, {{ color.dark.green }}, {{ color.dark.blue }})  |  hsl({{ color.dark.hue }}, {{ color.dark.saturation }}%, {{ color.dark.lightness }}%)
+
+<* endfor *>
+
+
+<* for name, color in base16 *>
+─── {{ name }} ───────────────────────────────
+  default  => {{ color.default.hex }}  |  rgb({{ color.default.red }}, {{ color.default.green }}, {{ color.default.blue }})  |  hsl({{ color.default.hue }}, {{ color.default.saturation }}%, {{ color.default.lightness }}%)
+  light    => {{ color.light.hex }}  |  rgb({{ color.light.red }}, {{ color.light.green }}, {{ color.light.blue }})  |  hsl({{ color.light.hue }}, {{ color.light.saturation }}%, {{ color.light.lightness }}%)
+  dark     => {{ color.dark.hex }}  |  rgb({{ color.dark.red }}, {{ color.dark.green }}, {{ color.dark.blue }})  |  hsl({{ color.dark.hue }}, {{ color.dark.saturation }}%, {{ color.dark.lightness }}%)
+
+<* endfor *>
+
+
+
